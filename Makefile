@@ -52,20 +52,19 @@ testapp.elf: $(OBJ_FILES) $(STARTUP_FILE_OUT)
 	arm-atollic-eabi-gcc $(LDS_FLAG) -o $@ $^
 $(OBJ_DIR)/%.o: %.c|$(OBJ_DIR)/%.f
 	@echo
-	@echo "making obj: " $@
+	@echo "building obj: " $@
 	@echo
 
 	arm-atollic-eabi-gcc -c $< $(LD_FLAGS) $(CFLAGS) $(INCLUDE) -o $@
 
 $(OBJ_DIR)/%.o: %.s
 	@echo
-	@echo "making strt: " $@
+	@echo "building obj: " $@
 	@echo
 
 	arm-atollic-eabi-gcc -c $<  $(LD_FLAGS) $(CFLAGS) $(INCLUDE) -o $@
 
 %.f:
-	@echo "creating dir"
 	@mkdir -p $(dir $@)
 
 clean:

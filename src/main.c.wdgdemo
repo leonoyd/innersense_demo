@@ -59,16 +59,6 @@ typedef struct {
     volatile int32_t window;
 } WdtRegisters;
 
-#if 0
-WdtRegisters wdt_reg = {
-    .key = (volatile uint32_t*) (WDT_OFFSET + 0),
-    .prescaler = (volatile uint32_t*) (WDT_OFFSET + 4),
-    .reload = (volatile uint32_t*) (WDT_OFFSET + 8),
-    .status = (volatile uint32_t*) (WDT_OFFSET + 12),
-    .window = (volatile uint32_t*) (WDT_OFFSET + 16)
-};
-#endif
-
 WdtRegisters* wdt_reg;
 
 void iwdg_reset()
