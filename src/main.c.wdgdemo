@@ -68,7 +68,7 @@ void iwdg_reset()
 
 void iwdg_init()
 {
-    wdt_reg = (WdtRegisters*) 0x40003000;
+    wdt_reg = (WdtRegisters*) WDT_OFFSET;
     wdt_reg->key = 0x0000CCCC; // Enable IWDG
     wdt_reg->key = 0x00005555; // Enable register access
     wdt_reg->reload = 0x00000C35;
